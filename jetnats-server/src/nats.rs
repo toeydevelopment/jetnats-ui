@@ -27,7 +27,10 @@ impl INats for Nats {
 
     fn list_streams(&self) -> Result<Vec<String>, io::Error> {
         let sx = self.nc.list_streams();
-
-        Ok(sx.map(|s| s.unwrap().config.name).collect())
+        sx.map(|s| match s {
+            Ok(s) => Ok(s.config.name),
+            Err(err) => return Err(err),
+        })
+        .collect()
     }
 }
