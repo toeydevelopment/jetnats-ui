@@ -1,8 +1,17 @@
 [package]
 name = "jetnats-server"
-version = "0.1.0"
+description = "A Rust jetnats server"
+version = "0.0.1"
 edition = "2021"
+authors = ["Anirut Jamchai <anirut.workspace@gmail.com>"]
+license = "Apache-2.0"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+dotenv = "0.15.0"
+nats = "0.16.0"
+rocket = "0.5.0-rc.1"
+serde = "1.0.131"
+tokio = "1.14.0"
